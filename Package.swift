@@ -17,7 +17,7 @@ let package = Package(
     dependencies: [
     ],
     targets: [
-        .systemLibrary(
+        .linkedLibrary(
             name: "CSQLite",
             providers: [.apt(["libsqlite3-dev"])]),
         .target(
