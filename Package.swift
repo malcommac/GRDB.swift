@@ -17,13 +17,16 @@ let package = Package(
     dependencies: [
     ],
     targets: [
-        .linkedLibrary(
+        .systemLibrary(
             name: "CSQLite",
             providers: [.apt(["libsqlite3-dev"])]),
         .target(
             name: "GRDB",
             dependencies: ["CSQLite"],
-            path: "GRDB"),
+            path: "GRDB",
+            linkerSettings: [
+                .linkedLibrary("CSQLite")
+            ]),
         .testTarget(
             name: "GRDBTests",
             dependencies: ["GRDB"],
