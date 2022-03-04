@@ -19,10 +19,7 @@ let package = Package(
     targets: [
         .target(
             name: "GRDB",
-            path: "GRDB",
-            linkerSettings: [
-                .linkedLibrary("CSQLite")
-            ]),
+            path: "GRDB"),
         .testTarget(
             name: "GRDBTests",
             dependencies: ["GRDB"],
