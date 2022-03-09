@@ -16,11 +16,9 @@ let package = Package(
         .library(name: "GRDB-dynamic", type: .dynamic, targets: ["GRDB"]),
     ],
     dependencies: [
+        .package(path: "./Sources/CSQLite"),
     ],
     targets: [
-        .systemLibrary(
-            name: "CSQLite",
-            providers: [.apt(["libsqlite3-dev"])]),
         .target(
             name: "GRDB",
             dependencies: ["CSQLite"],
