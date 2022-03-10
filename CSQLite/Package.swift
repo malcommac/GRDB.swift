@@ -4,5 +4,11 @@
 import PackageDescription
 
 let package = Package(
-	name: "CSQLite"
+  name: "CSQLite",
+  products: [
+  .library(name: "CSQLite", targets: ["CSQLite"]),
+  ],
+  targets: [
+    .systemLibrary(name: "CSQLite"),
+  ]
 )
