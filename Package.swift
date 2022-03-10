@@ -12,19 +12,26 @@ let package = Package(
         .watchOS(.v2),
     ],
     products: [
-        .library(name: "CSQLite", targets: ["CSQLite"]),
+        //.library(name: "CSQLite", targets: ["CSQLite"]),
         .library(name: "GRDB", targets: ["GRDB"]),
         .library(name: "GRDB-dynamic", type: .dynamic, targets: ["GRDB"]),
     ],
     dependencies: [
-        //.package(path: "./Sources/CSQLite"),
+        .package(path: "Sources/CSQLite"),
     ],
     targets: [
-        .systemLibrary(name: "CSQLite", path: "./Sources/CSQLite"),
+        /*.systemLibrary(
+            name: "CSQLite",
+            path: "Sources/CSQLite",
+            providers: [
+                .apt(["libsqlite3-dev"])
+            ]
+        ),*/
         .target(
             name: "GRDB",
             dependencies: ["CSQLite"],
-            path: "GRDB"),
+            path: "GRDB"
+        ),
         .testTarget(
             name: "GRDBTests",
             dependencies: ["GRDB"],
